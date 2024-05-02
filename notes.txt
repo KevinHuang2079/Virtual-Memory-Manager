@@ -1,0 +1,6 @@
+LRU for TlB (structure of 2 ints and size 16 array)
+
+instead of reading file by line to move file pointer, use fseek(set, current, zero)
+set reccomennded 
+
+dont use mMap use fseek
