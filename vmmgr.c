@@ -76,7 +76,7 @@ int* pageLookUp(FILE* fp){
 }
 
 //TODO
-int loadTLB(FILE* fp, int pageNumber){
+int loadTLB(FILE* fp, int pageNumber, int pageOffset){
 
 }
 int loadPageTable(FILE* fp, int pageNumber){
@@ -101,6 +101,7 @@ int main( int argc, char* agrv[]){
     
     while (!feof(addressPointer)){
         int* lookUpResult = tlbLookUP(addressPointer);
+        int pageNumber = get_vAddrInfo(addressPointer)[0];
         int pageOffset = get_vAddrInfo(addressPointer)[1];
         int pAddr;
 
@@ -114,6 +115,7 @@ int main( int argc, char* agrv[]){
                 int frameNumber = *lookUpResult;
                 pAddr = frameNumber + pageOffset;
                 //load tlb
+                int loadTLB(fp, pageNumber, pageOffset);
                 printf("page hit -> physical address: %d", pAddr);
             }
             seekCounter++;
